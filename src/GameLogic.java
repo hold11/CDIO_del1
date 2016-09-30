@@ -3,13 +3,14 @@
  */
 public class GameLogic {
 
+    private static int playerTurn = 0;
     private static int playerCount;
     private static Player[] players;
 
     private static void addScore(Player player, int score) {
         player.addPlayerScore(score);
     }
-    private static void turn(Player player) {
+    private static void playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
         int result = 0;
 
@@ -37,5 +38,22 @@ public class GameLogic {
         }
 
         return false;
+    }
+
+    public static Player findPlayer(int playerID) {
+        for (int i = 0; i < players.length; i++)
+            if (players[i].getPlayerID() == playerID)
+                return players[i];
+
+        throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+    }
+
+    public static int whosTurnIsIt() {
+        if (playerTurn < players.length)
+            playerTurn++;
+        else
+            playerTurn = 1;
+
+        return playerTurn;
     }
 }
