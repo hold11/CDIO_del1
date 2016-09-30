@@ -15,17 +15,17 @@ public class App {
 
         GameLogic.setPlayers(players);
 
-        while (!GameLogic.playerHasWon()) {
-            String currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt()).getPlayerName();
+        while (!GameLogic.playerHasWon) {
+            //String currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt()).getPlayerName();
+            Player currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt());
 
-            System.out.printf("This turn goes to: %s", currentPlayer);
-            System.out.print("Press 'enter' to roll the die.");
+            System.out.printf("This turn goes to: %s", currentPlayer.getPlayerName());
+            System.out.print("\nPress 'enter' to roll the die.");
             pause();
             
-
-
             // Mere kommer senere
-            System.out.println(currentPlayer + " rolled ");
+            System.out.println(currentPlayer.getPlayerName() + " rolled " + GameLogic.playTurn(currentPlayer) + " in total.");
+            System.out.println("" + currentPlayer.getPlayerName() + " now has " + currentPlayer.getPlayerScore() + " points.\n\n");
         }
     }
 

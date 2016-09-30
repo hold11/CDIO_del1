@@ -20,7 +20,7 @@ public class Player {
     }
 
     public void addPlayerScore(int playerScore) {
-        this.playerScore = playerScore;
+        this.playerScore += playerScore;
     }
 
     public int getPlayerID() {

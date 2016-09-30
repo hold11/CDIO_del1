@@ -7,10 +7,13 @@ public class GameLogic {
     private static int playerCount;
     private static Player[] players;
 
+    protected static boolean playerHasWon = false;
+
     private static void addScore(Player player, int score) {
         player.addPlayerScore(score);
     }
-    private static void playTurn(Player player) {
+
+    public static int playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
         int result = 0;
 
@@ -19,6 +22,11 @@ public class GameLogic {
         }
 
         addScore(player, result);
+
+        if (player.getPlayerScore() >= 40)
+        {System.out.println(player.getPlayerName() + " has won the game."); playerHasWon = true; }
+
+        return result;
     }
 
     public static void setPlayerCount(int _playerCount) {
@@ -29,7 +37,7 @@ public class GameLogic {
         players = _players;
     }
 
-    public static boolean playerHasWon() {
+    /*public static boolean playerHasWon() {
         for (int i = 0; i < playerCount; i++) {
             if (players[i].getPlayerScore() < 40)
                 return false;
@@ -38,7 +46,7 @@ public class GameLogic {
         }
 
         return false;
-    }
+    }*/
 
     public static Player findPlayer(int playerID) {
         for (int i = 0; i < players.length; i++)
