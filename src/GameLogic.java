@@ -48,13 +48,13 @@ public class GameLogic {
         return false;
     }*/
 
-    public static Player findPlayer(int playerID) {
-        for (int i = 0; i < players.length; i++)
-            if (players[i].getPlayerID() == playerID)
-                return players[i];
+    //public static Player findPlayer(int playerID) {
+    //    for (int i = 0; i < players.length; i++)
+    //        if (players[i].getPlayerID() == playerID)
+    //            return players[i];
 
-        throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
-    }
+    //    throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+    //}
 
     public static int whosTurnIsIt() {
         if (playerTurn < players.length)

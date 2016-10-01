@@ -17,7 +17,7 @@ public class App {
 
         while (!GameLogic.playerHasWon) {
             //String currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt()).getPlayerName();
-            Player currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt());
+            Player currentPlayer = Player.findPlayer(GameLogic.whosTurnIsIt());
 
             System.out.printf("This turn goes to: %s", currentPlayer.getPlayerName());
             System.out.print("\nPress 'enter' to roll the die.");
