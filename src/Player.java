@@ -15,6 +15,7 @@ public class Player {
 
         playerCount++;
     }
+    
     public int getPlayerScore() {
         return this.playerScore;
     }
