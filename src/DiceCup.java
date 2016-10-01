@@ -2,15 +2,15 @@
  * Created by awo on 30/09/16.
  */
 public class DiceCup {
-    private Dice[] die;     // [] fordi vi har en Array (eller liste) af terninger (Dice)
+    private Dice[] die;     // [] Because we have an Array of Dice objects
 
     private static int diceCount;
 
     public DiceCup() {
-        // Vi instantierer vores Dice array med antallet diceCount terninger
+        // We instantiate our Dice object array with the diceCount number of die
         die = new Dice[diceCount];
 
-        // Hver plads i vores die array får instantieret en ny Dice
+        // Every record in our Dice object array gets instantiated with a new Dice object
         for (int i = 0; i < diceCount; i++) {
             Dice dice = new Dice();
             die[i] = dice;
@@ -18,15 +18,15 @@ public class DiceCup {
     }
 
     public int[] rollDie() {
-        // Vi vil have en array af resultater, så hver terning i kastet kan behandles hver for sig i GameLogic-klassen
+        // We need an array of results, so every dice that gets rolled, gets analysed speerately in the GameLogic class
         int[] result = new int[diceCount];
 
-        // Hver terning kastes, og sættes ind i result
+        // Every dice gets rolled, and the value of the face, gets inserted in the result array
         for (int i = 0; i < diceCount; i++) {
             result[i] = die[i].rollDice();
         }
 
-        // Resultatet returneres
+        // The result gets returned
         return result;
     }
 
