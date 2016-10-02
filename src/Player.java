@@ -1,9 +1,17 @@
+/**
+ ||======================================||
+ ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
+ ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
+ ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Høj             (s152282)
+ ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
+ ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvári (s145918)
+ ||                                      ||  Troels Just Christoffersen (s150052)
+ ||======================================||
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by awo on 30/09/16.
- */
 public class Player {
     private int playerScore;
     private int playerID;
@@ -45,5 +53,9 @@ public class Player {
                 return players.get(i);
 
         throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+    }
+
+    public static List<Player> getPlayersList() {
+        return players;
     }
 }

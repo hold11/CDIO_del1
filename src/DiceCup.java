@@ -1,6 +1,14 @@
 /**
- * Created by awo on 30/09/16.
+ ||======================================||
+ ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
+ ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
+ ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Høj             (s152282)
+ ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
+ ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvári (s145918)
+ ||                                      ||  Troels Just Christoffersen (s150052)
+ ||======================================||
  */
+
 public class DiceCup {
     private Dice[] die;     // [] Because we have an Array of Dice objects
 

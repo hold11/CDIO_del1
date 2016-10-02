@@ -1,8 +1,14 @@
-import java.util.Scanner;
-
 /**
- * Created by awo on 30/09/16.
+   ||======================================||
+   ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
+   ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
+   ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Høj             (s152282)
+   ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
+   ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvári (s145918)
+   ||                                      ||  Troels Just Christoffersen (s150052)
+   ||======================================||
  */
+
 public class App {
     public static void main(String[] args) {
         Dice.setFaceCount(6);
@@ -11,9 +17,7 @@ public class App {
 
         Player p1 = new Player("Karl");
         Player p2 = new Player("Hans");
-        Player[] players = {p1, p2};
-
-        GameLogic.setPlayers(players);
+        Player p3 = new Player("Betinna");
 
         while (!GameLogic.playerHasWon) {
             //String currentPlayer = GameLogic.findPlayer(GameLogic.whosTurnIsIt()).getPlayerName();
@@ -23,7 +27,6 @@ public class App {
             System.out.print("\nPress 'enter' to roll the die.");
             pause();
             
-            // Mere kommer senere
             System.out.println(currentPlayer.getPlayerName() + " rolled " + GameLogic.playTurn(currentPlayer) + " in total.");
             System.out.println("" + currentPlayer.getPlayerName() + " now has " + currentPlayer.getPlayerScore() + " points.\n\n");
         }

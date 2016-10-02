@@ -1,17 +1,23 @@
 /**
- * Created by awo on 30/09/16.
+ ||======================================||
+ ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
+ ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
+ ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Høj             (s152282)
+ ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
+ ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvári (s145918)
+ ||                                      ||  Troels Just Christoffersen (s150052)
+ ||======================================||
  */
+
+import java.util.List;
+
 public class GameLogic {
 
     private static int playerTurn = 0;
     private static int playerCount;
-    private static Player[] players;
+    private static List<Player> players = Player.getPlayersList();
 
     protected static boolean playerHasWon = false;
-
-    private static void addScore(Player player, int score) {
-        player.addPlayerScore(score);
-    }
 
     public static int playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
@@ -21,7 +27,7 @@ public class GameLogic {
             result += diceCup.rollDie()[i];
         }
 
-        addScore(player, result);
+        player.addPlayerScore(result);
 
         if (player.getPlayerScore() >= 40)
         {System.out.println(player.getPlayerName() + " has won the game."); playerHasWon = true; }
@@ -33,31 +39,12 @@ public class GameLogic {
         playerCount = _playerCount;
     }
 
-    public static void setPlayers(Player[] _players) {
-        players = _players;
-    }
-
-    /*public static boolean playerHasWon() {
-        for (int i = 0; i < playerCount; i++) {
-            if (players[i].getPlayerScore() < 40)
-                return false;
-            else
-                return true;
-        }
-
-        return false;
-    }*/
-
-    //public static Player findPlayer(int playerID) {
-    //    for (int i = 0; i < players.length; i++)
-    //        if (players[i].getPlayerID() == playerID)
-    //            return players[i];
-
-    //    throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+    //public static void setPlayers(Player[] _players) {
+    //    players = _players;
     //}
 
     public static int whosTurnIsIt() {
-        if (playerTurn < players.length)
+        if (playerTurn < players.size())
             playerTurn++;
         else
             playerTurn = 1;
