@@ -1,16 +1,20 @@
-/**
+/*
  ||======================================||
  ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
  ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
- ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Høj             (s152282)
+ ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Hoeg            (s152282)
  ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
- ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvári (s145918)
+ ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvari (s145918)
  ||                                      ||  Troels Just Christoffersen (s150052)
  ||======================================||
  */
 
 import java.util.List;
 
+/**
+ * This class holds all of the game logic to the game. All rules gets applied in this class.
+ * @version 1.0.0
+ */
 public class GameLogic {
 
     private static int playerTurn = 0;
@@ -19,6 +23,11 @@ public class GameLogic {
 
     protected static boolean playerHasWon = false;
 
+    /**
+     * Returns the score the specific player rolled (Dice).
+     * @param player the player that has to play.
+     * @return int
+     */
     public static int playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
         int result = 0;
@@ -35,14 +44,10 @@ public class GameLogic {
         return result;
     }
 
-    public static void setPlayerCount(int _playerCount) {
-        playerCount = _playerCount;
-    }
-
-    //public static void setPlayers(Player[] _players) {
-    //    players = _players;
-    //}
-
+    /**
+     * Returns the ID of the specific player whos turn it is.
+     * @return int
+     */
     public static int whosTurnIsIt() {
         if (playerTurn < players.size())
             playerTurn++;
