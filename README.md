@@ -12,7 +12,7 @@ Terningspil er et turbaseret spil til to deltagere. Deltagerne kaster på skift 
 
 ## Teamlead
 
-For dette projekt er Sebastian Tibor Banonyvári teamlead. Dvs at Sebastian er den eneste der accepterer / afslår pull-requests.
+For dette projekt er Sebastian Tibor Bakonyvári teamlead. Dvs at Sebastian er den eneste der accepterer / afslår pull-requests.
 
 ## Installation
 
@@ -25,3 +25,4 @@ TODO: Skriv hvordan man bruger / kører programmet her.
 ## License
 
 GNU General Public License v3.0
+
