@@ -1,10 +1,18 @@
 # Raflebæger
+ 
+```                                            
+ _____                 _                      _  _ 
+|_   _| ___  ___  ___ |_| ___  ___  ___  ___ |_|| |
+  | |  | -_||  _||   || ||   || . ||_ -|| . || || |
+  |_|  |___||_|  |_|_||_||_|_||_  ||___||  _||_||_|
+                              |___|     |_|        
+```
 
-TODO: Skriv en ikke forklaring til hvad projektet gør.
+Terningspil er et turbaseret spil til to deltagere. Deltagerne kaster på skift med to terninger. Ved hvert terningskast optjener spilleren points. Den første spiller der opnår 40 point har vundet.
 
 ## Teamlead
 
-For dette projekt er <navn> teamlead. Dvs at <navn> er den eneste der accepterer / afslår pull-requests.
+For dette projekt er Sebastian Tibor Bakonyvári teamlead. Dvs at Sebastian er den eneste der accepterer / afslår pull-requests.
 
 ## Installation
 
@@ -17,3 +25,4 @@ TODO: Skriv hvordan man bruger / kører programmet her.
 ## License
 
 GNU General Public License v3.0
+
