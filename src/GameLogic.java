@@ -11,6 +11,10 @@
 
 import java.util.List;
 
+/**
+ * This class holds all of the game logic to the game. All rules gets applied in this class.
+ * @version 1.0.0
+ */
 public class GameLogic {
 
     private static int playerTurn = 0;
@@ -19,6 +23,11 @@ public class GameLogic {
 
     protected static boolean playerHasWon = false;
 
+    /**
+     * Returns the score the specific player rolled (Dice).
+     * @param player the player that has to play.
+     * @return int
+     */
     public static int playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
         int result = 0;
@@ -35,14 +44,10 @@ public class GameLogic {
         return result;
     }
 
-    public static void setPlayerCount(int _playerCount) {
-        playerCount = _playerCount;
-    }
-
-    //public static void setPlayers(Player[] _players) {
-    //    players = _players;
-    //}
-
+    /**
+     * Returns the ID of the specific player whos turn it is.
+     * @return int
+     */
     public static int whosTurnIsIt() {
         if (playerTurn < players.size())
             playerTurn++;
