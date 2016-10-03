@@ -31,6 +31,16 @@ public class Player {
         players.add(this);
     }
 
+    public Player() {
+        this.playerScore = 0;
+        this.playerName = String.format("Player %s", playerCount);
+        this.playerID = playerCount;
+
+        playerCount++;
+
+        players.add(this);
+    }
+
     public int getPlayerScore() {
         return this.playerScore;
     }
