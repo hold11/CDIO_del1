@@ -25,7 +25,7 @@ public class DiceTest {
         for (int i = 0; i < diceFace.length; i++)
         {
             assertEquals(10000, diceFace[i], 400);
-            System.out.printf("face%s: %s", i, diceFace[i]);
+            System.out.printf("face %s: %s\n", i+1, diceFace[i]);
         }
     }
 }
