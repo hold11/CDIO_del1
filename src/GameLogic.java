@@ -28,21 +28,38 @@ public class GameLogic {
      * @param player the player that has to play.
      * @return int
      */
-    public static int playTurn(Player player) {
+    public static int[] playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
-        int result = 0;
+        int   result = 0;
+        int[] rolled = diceCup.rollDie();
 
-        for (int i = 0; i < DiceCup.getDiceCount(); i++) {
-            result += diceCup.rollDie()[i];
-        }
+        for (int i = 0; i < DiceCup.getDiceCount(); i++)
+            result += rolled[i];
 
         player.addPlayerScore(result);
+        if(player.getPlayerScore() >= 40) {
+            System.out.println(player.getPlayerName() + " has won the game.");
+            playerHasWon = true;
+        }
 
-        if (player.getPlayerScore() >= 40)
-        {System.out.println(player.getPlayerName() + " has won the game."); playerHasWon = true; }
-
-        return result;
+        return rolled;
     }
+
+//    public static int playTurn(Player player) {
+//        DiceCup diceCup = new DiceCup();
+//        int result = 0;
+//
+//        for (int i = 0; i < DiceCup.getDiceCount(); i++) {
+//            result += diceCup.rollDie()[i];
+//        }
+//
+//        player.addPlayerScore(result);
+//
+//        if (player.getPlayerScore() >= 40)
+//        {System.out.println(player.getPlayerName() + " has won the game."); playerHasWon = true; }
+//
+//        return result;
+//    }
 
     /**
      * Returns the ID of the specific player whos turn it is.
