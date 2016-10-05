@@ -25,8 +25,12 @@ public class App {
             System.out.printf("This turn goes to: %s", currentPlayer.getPlayerName());
             System.out.print("\nPress 'enter' to roll the die.");
             pause();
-            
-            System.out.println(currentPlayer.getPlayerName() + " rolled " + GameLogic.playTurn(currentPlayer) + " in total.");
+
+            int rolledTotal = 0;
+            for (int diceFace : GameLogic.playTurn(currentPlayer))
+                rolledTotal += diceFace;
+
+            System.out.println(currentPlayer.getPlayerName() + " rolled " + rolledTotal + " in total.");
             System.out.println("" + currentPlayer.getPlayerName() + " now has " + currentPlayer.getPlayerScore() + " points.\n\n");
         }
     }
