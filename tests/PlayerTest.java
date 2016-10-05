@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,7 +10,7 @@ import static org.junit.Assert.*;
  * Created by awo on 04/10/16.
  */
 public class PlayerTest {
-    Player p1 = new Player(), p2 = new Player(), p3 = new Player("Hans"), p4 = new Player("Betinna");
+    Player p1, p2, p3, p4;
 
     // TODO: The players p1, p2, p3 and p4 gets reconstructed many times, so fx p1 gets the name "Player 35", and there are 16 players in the players list. FIX IT!
 
@@ -19,6 +20,11 @@ public class PlayerTest {
         p2 = new Player();
         p3 = new Player("Hans");
         p4 = new Player("Betinna");
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        Player.reset();
     }
 
     @Test
