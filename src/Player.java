@@ -102,6 +102,9 @@ public class Player {
         return players;
     }
 
+    /**
+     * Resets the players list and the playerCount variables.
+     */
     public static void reset() {
         playerCount = 1;
         players.clear();
