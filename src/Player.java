@@ -101,4 +101,9 @@ public class Player {
     public static List<Player> getPlayersList() {
         return players;
     }
+
+    public static void reset() {
+        playerCount = 1;
+        players.clear();
+    }
 }
