@@ -18,7 +18,6 @@ import java.util.List;
 public class GameLogic {
 
     private static int playerTurn = 0;
-    private static int playerCount;
     private static List<Player> players = Player.getPlayersList();
 
     private static boolean playerHasWon = false;
@@ -34,13 +33,15 @@ public class GameLogic {
      */
     public static int[] playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
-        int   result = 0;
+        //int   result = 0;
         int[] rolled = diceCup.rollDie();
 
-        for (int i = 0; i < DiceCup.getDiceCount(); i++)
-            result += rolled[i];
+        //for (int i = 0; i < DiceCup.getDiceCount(); i++)
+        //    result += rolled[i];
 
-        player.addPlayerScore(result);
+        //player.addPlayerScore(result);
+        player.addPlayerScore(calTotalScore(rolled));
+
         if(player.getPlayerScore() >= 40) {
             System.out.println("\n" + player.getPlayerName() + " has won the game.");
             playerHasWon = true;
@@ -49,21 +50,17 @@ public class GameLogic {
         return rolled;
     }
 
-//    public static int playTurn(Player player) {
-//        DiceCup diceCup = new DiceCup();
-//        int result = 0;
-//
-//        for (int i = 0; i < DiceCup.getDiceCount(); i++) {
-//            result += diceCup.rollDie()[i];
-//        }
-//
-//        player.addPlayerScore(result);
-//
-//        if (player.getPlayerScore() >= 40)
-//        {System.out.println(player.getPlayerName() + " has won the game."); playerHasWon = true; }
-//
-//        return result;
-//    }
+    /**
+     * This method takes an array, and calculates the total score
+     * @param rolled array of integers
+     * @return int
+     */
+    public static int calTotalScore(int[] rolled) {
+        int total = 0;
+        for (int val : rolled)
+            total += val;
+        return total;
+    }
 
     /**
      * Returns the ID of the specific player whos turn it is.
