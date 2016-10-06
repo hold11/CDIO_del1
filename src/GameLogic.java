@@ -21,7 +21,11 @@ public class GameLogic {
     private static int playerCount;
     private static List<Player> players = Player.getPlayersList();
 
-    protected static boolean playerHasWon = false;
+    private static boolean playerHasWon = false;
+
+    public static boolean getPlayerHasWon() {
+        return playerHasWon;
+    }
 
     /**
      * Returns the score the specific player rolled (Dice).
@@ -38,7 +42,7 @@ public class GameLogic {
 
         player.addPlayerScore(result);
         if(player.getPlayerScore() >= 40) {
-            System.out.println(player.getPlayerName() + " has won the game.");
+            System.out.println("\n" + player.getPlayerName() + " has won the game.");
             playerHasWon = true;
         }
 
