@@ -1,13 +1,13 @@
 /*
- ||======================================||
- ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
- ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
- ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Hoeg            (s152282)
- ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
- ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvari (s145918)
- ||                                      ||  Troels Just Christoffersen (s150052)
- ||======================================||
- */
+    §§======================================§§
+    ||    _         _     _  ___   ___      ||  Terningspil v1.0.0 | Java JDK 1.8.0_101
+    ||   | |__   _ | | __| |/_  | /_  |     ||  Anders Wiberg Olsen        (s165241)
+    ||   | '_ \ / \| |/ _  |  | |   | |     ||  Emil Johan Hoeg            (s152282)
+    ||   | | | | O | | (_| | _| |_ _| |_    ||  Iman Chelhi                (s165228)
+    ||   |_| |_|\_/|_|\__,_||_____|_____|   ||  Sebastian Tibor Bakonyvari (s145918)
+    ||                                      ||  Troels Just Christoffersen (s150052)
+    §§======================================§§
+*/
 
 import java.util.ArrayList;
 import java.util.List;
@@ -100,5 +100,13 @@ public class Player {
      */
     public static List<Player> getPlayersList() {
         return players;
+    }
+
+    /**
+     * Resets the players list and the playerCount variables.
+     */
+    public static void reset() {
+        playerCount = 1;
+        players.clear();
     }
 }
