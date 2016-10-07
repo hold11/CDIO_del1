@@ -13,7 +13,7 @@ import java.util.List;
 
 /**
  * This class holds all of the game logic to the game. All rules gets applied in this class.
- * @version 1.0.0
+ * @version 1.0.2
  */
 public class GameLogic {
 
@@ -53,6 +53,7 @@ public class GameLogic {
     /**
      * This method takes an array, and calculates the total score
      * @param eyes array of integers
+     * @param player calculate score of this player
      * @return int
      */
     public static int calTotalScore(int[] eyes, Player player) {
