@@ -37,13 +37,8 @@ public class GameLogic {
      */
     public static int[] playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
-        //int   result = 0;
         int[] eyes = diceCup.rollDie();
 
-        //for (int i = 0; i < DiceCup.getDiceCount(); i++)
-        //    result += eyes[i];
-
-        //player.addPlayerScore(result);
         player.addPlayerScore(calTotalScore(eyes, player));
 
         if(player.getPlayerScore() >= 40) {

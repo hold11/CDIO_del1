@@ -12,7 +12,7 @@ import desktop_fields.*;
 import desktop_resources.*;
 
 public class App {
-    private static MP3 music = new MP3("spilmusik.mp3");
+    private static MP3 music = new MP3("assets/spilmusik.mp3");
 
     /**
      * This method executes the entire game.
@@ -38,6 +38,7 @@ public class App {
         if (args.length == 0)
             music.play();
 
+        // Start the game
         while (!GameLogic.getPlayerHasWon()) {
             Player currentPlayer = Player.findPlayer(GameLogic.whoseTurnIsIt());
 
@@ -53,18 +54,24 @@ public class App {
                     + "\n" + currentPlayer.getPlayerName() + " now has " + currentPlayer.getPlayerScore() + " points in total.\n\n");
             GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points.");
 
+            // When a player has reeched 40 points or more
             if(GameLogic.getPlayerHasWon()) {
                 System.out.println("\n" + currentPlayer.getPlayerName() + " has won the game.");
                 GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points." + "<br>"+ "<br>"+ "<br>" + " YOU ARE WINNER!");
+
+                // If the user wants to exit the game
                 if (GUI.getUserButtonPressed("\t                      " + "Press 'Exit' to exit or 'Play again' to play again", "Exit" , "Play Again") == "Exit")
                 {
                     music.close();
                     GUI.close();
-                } else {
+                } else { // If the player wants to play again
+                    // Reset everything
                     GameLogic.setPlayerHasWon(!true); // FW:FW:FW:FW:RE: THOUGHT YOU MIGHT GET A LAUGH OUT OF THIS!
                     for (Player p : Player.getPlayersList())
                         GUI.setBalance(p.getPlayerName(), 0);
                     Player.reset();
+
+                    // Call the main method again, if the user wants to restart the game.
                     String[] _args = {"restart"};
                     main(_args);
                 }
