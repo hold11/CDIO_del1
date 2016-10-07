@@ -235,7 +235,7 @@ public final class BoardController {
 			}
 		}
 		final JComboBox dropdown = new JComboBox(options);
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Exit");
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -411,9 +411,9 @@ public final class BoardController {
 	}
 	private boolean arePositionsValid(int x1, int y1, int x2, int y2) {
 	    return x1 >= 0 && x1 <= 10
-            && y1 >= 0 && y1 <= 10
+            && y1 >= 5 && y1 <= 10
             && x2 >= 0 && x2 <= 10
-            && y2 >= 0 && y2 <= 10;
+            && y2 >= 5 && y2 <= 10;
 	}
 	private boolean areRotationsValid(int rotation1, int rotation2) {
 	    return rotation1 >= 0 && rotation1 <= 359

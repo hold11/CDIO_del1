@@ -34,39 +34,44 @@ public class GameLogic {
     public static int[] playTurn(Player player) {
         DiceCup diceCup = new DiceCup();
         //int   result = 0;
-        int[] rolled = diceCup.rollDie();
+        int[] eyes = diceCup.rollDie();
 
         //for (int i = 0; i < DiceCup.getDiceCount(); i++)
-        //    result += rolled[i];
+        //    result += eyes[i];
 
         //player.addPlayerScore(result);
-        player.addPlayerScore(calTotalScore(rolled));
+        player.addPlayerScore(calTotalScore(eyes, player));
 
         if(player.getPlayerScore() >= 40) {
             System.out.println("\n" + player.getPlayerName() + " has won the game.");
             playerHasWon = true;
         }
 
-        return rolled;
+        return eyes;
     }
 
     /**
      * This method takes an array, and calculates the total score
-     * @param rolled array of integers
+     * @param eyes array of integers
      * @return int
      */
-    public static int calTotalScore(int[] rolled) {
+    public static int calTotalScore(int[] eyes, Player player) {
         int total = 0;
-        for (int val : rolled)
-            total += val;
+        if (eyes[0] == 1 && eyes[1] == 1)
+            total -= player.getPlayerScore();
+
+        else
+            for (int val : eyes)
+                total += val;
+
         return total;
     }
 
     /**
-     * Returns the ID of the specific player whos turn it is.
+     * Returns the ID of the specific player whose turn it is.
      * @return int
      */
-    public static int whosTurnIsIt() {
+    public static int whoseTurnIsIt() {
         if (playerTurn < players.size())
             playerTurn++;
         else
