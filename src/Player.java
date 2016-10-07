@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * This class is the player class.
- * @version 1.0.0
+ * @version 1.0.1
  */
 public class Player {
     private int playerScore;
