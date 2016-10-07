@@ -16,13 +16,9 @@ Dokumentationen kan findes under vores [dokumentationsside](http://hold11.github
 
 For dette projekt er Sebastian Tibor Bakonyvári teamlead. Dvs at Sebastian er den eneste der accepterer / afslår pull-requests.
 
-## Installation
-
-TODO: Hvis programmet kræver installation, så kan man her skrive hvordan man gør.
-
 ## Brug
 
-TODO: Skriv hvordan man bruger / kører programmet her.
+Spillet kan køres ved blot at køre vores jar-fil (altså ved at dobbeltklikke på den). Er filen hentet fra DTU's campusnet, hedder filen `11_del1_launch.jar`, er den hentet her fra GitHub, hedder filen `Launch.v.1.1.2.jar`.
 
 ## License
 
