@@ -11,9 +11,8 @@
 import desktop_fields.*;
 import desktop_resources.*;
 
-import java.lang.reflect.GenericArrayType;
-
 public class App {
+    private static MP3 music = new MP3("spilmusik.mp3");
     public static void main(String[] args) {
         Dice.setFaceCount(6);
         DiceCup.setDiceCount(2);
@@ -30,6 +29,9 @@ public class App {
 
         GUI.displayChanceCard("");
 
+        // Start Music
+        music.play();
+
         while (!GameLogic.getPlayerHasWon()) {
             Player currentPlayer = Player.findPlayer(GameLogic.whoseTurnIsIt());
 
@@ -38,10 +40,6 @@ public class App {
                     + "Press 'the button', would you kindly?", "the button");
 
             int eyes[] = GameLogic.playTurn(currentPlayer);
-            //int calTotalScore = 0;
-            //for (int diceFace : eyes) {
-            //    calTotalScore += diceFace;
-            //}
 
             GUI.setDice(eyes[0], eyes[1]);
             GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerScore());
@@ -52,6 +50,7 @@ public class App {
             if(GameLogic.getPlayerHasWon()) {
                 GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points." + "<br>"+ "<br>"+ "<br>" + " YOU ARE WINNER!");
                 GUI.showMessage("\t\t                   " + "Press 'ok' to exit");
+                music.close();
                 GUI.close();
             }
         }
