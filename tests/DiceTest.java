@@ -9,12 +9,20 @@ import static org.junit.Assert.*;
 public class DiceTest {
     private Dice dice;
 
+    /**
+     * Sets the face count value from the Dice class
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         Dice.setFaceCount(6);
         dice = new Dice();
     }
 
+    /**
+     * Tests if the dice works, and are some what random
+     * @throws Exception
+     */
     @Test
     public void rollDice() throws Exception {
         int[] diceFace = new int[6];

@@ -9,6 +9,10 @@ import static org.junit.Assert.*;
 public class DiceCupTest {
     DiceCup die;
 
+    /**
+     * Sets the faceCount and diceCount in the Dice and DiceCup classes.
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         Dice.setFaceCount(6);
@@ -16,6 +20,11 @@ public class DiceCupTest {
         die = new DiceCup();
     }
 
+    /**
+     * Tests if the count of every specific dice roll increments until it gets to 6
+     * then it the value has to decrement.
+     * @throws Exception
+     */
     @Test
     public void rollDie() throws Exception {
         // 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12

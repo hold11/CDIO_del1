@@ -10,10 +10,12 @@ import static org.junit.Assert.*;
  * Created by awo on 04/10/16.
  */
 public class PlayerTest {
-    Player p1, p2, p3, p4;
+    private Player p1, p2, p3, p4;
 
-    // TODO: The players p1, p2, p3 and p4 gets reconstructed many times, so fx p1 gets the name "Player 35", and there are 16 players in the players list. FIX IT!
-
+    /**
+     * Sets up 4 players, 2 with the default name, and 2 with a custom name.
+     * @throws Exception
+     */
     @Before
     public void setUp() throws Exception {
         p1 = new Player();
@@ -22,11 +24,19 @@ public class PlayerTest {
         p4 = new Player("Betinna");
     }
 
+    /**
+     * Resets all the users so we won't end up with 60 users.
+     * @throws Exception
+     */
     @After
     public void tearDown() throws Exception {
         Player.reset();
     }
 
+    /**
+     * Tests if score can be added to each player.
+     * @throws Exception
+     */
     @Test
     public void addPlayerScore() throws Exception {
         int add1 = 17, add2 = 13, add3 = 5, add4 = 2;
@@ -43,6 +53,10 @@ public class PlayerTest {
         assertEquals(add2 + add4, p2.getPlayerScore());
     }
 
+    /**
+     * Tests if the player ID can be fetched from a player, and the player ID matched correctly to the player.
+     * @throws Exception
+     */
     @Test
     public void getPlayerID() throws Exception {
         assertEquals(1, p1.getPlayerID());
@@ -51,6 +65,10 @@ public class PlayerTest {
         assertEquals(4, p4.getPlayerID());
     }
 
+    /**
+     * Tests if the Player 1 and Player 2 gets the correct name, and if custom names can be set.
+     * @throws Exception
+     */
     @Test
     public void getPlayerName() throws Exception {
         assertEquals("Player 1", p1.getPlayerName());
@@ -59,12 +77,20 @@ public class PlayerTest {
         assertEquals("Betinna",  p4.getPlayerName());
     }
 
+    /**
+     * Tests if a player can be found by ID.
+     * @throws Exception
+     */
     @Test
     public void findPlayer() throws Exception {
         assertEquals("Player 1", Player.findPlayer(1).getPlayerName());
         assertEquals("Betinna", Player.findPlayer(4).getPlayerName());
     }
 
+    /**
+     * Tests if the player list can be fetched.
+     * @throws Exception
+     */
     @Test
     public void getPlayersList() throws Exception {
         List<Player> players = Player.getPlayersList();
