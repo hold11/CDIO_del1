@@ -13,6 +13,11 @@ import desktop_resources.*;
 
 public class App {
     private static MP3 music = new MP3("spilmusik.mp3");
+
+    /**
+     * This method executes the entire game.
+     * @param args we don't use this........
+     */
     public static void main(String[] args) {
         Dice.setFaceCount(6);
         DiceCup.setDiceCount(2);
