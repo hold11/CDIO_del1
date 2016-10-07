@@ -22,7 +22,7 @@ public class DiceCupTest {
 
     /**
      * Tests if the count of every specific dice roll increments until it gets to 6
-     * then it the value has to decrement.
+     * then the value has to decrement.
      * @throws Exception
      */
     @Test
