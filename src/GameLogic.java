@@ -26,6 +26,10 @@ public class GameLogic {
         return playerHasWon;
     }
 
+    public static void setPlayerHasWon(boolean playerHasWon) {
+        GameLogic.playerHasWon = playerHasWon;
+    }
+
     /**
      * Returns the score the specific player rolled (Dice).
      * @param player the player that has to play.
@@ -43,7 +47,6 @@ public class GameLogic {
         player.addPlayerScore(calTotalScore(eyes, player));
 
         if(player.getPlayerScore() >= 40) {
-            System.out.println("\n" + player.getPlayerName() + " has won the game.");
             playerHasWon = true;
         }
 

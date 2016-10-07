@@ -52,7 +52,7 @@ public final class BoardController {
 	 */
 	public void showMessage(String msg) {
 		final CountDownLatch latch = new CountDownLatch(1);
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Exit");
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override

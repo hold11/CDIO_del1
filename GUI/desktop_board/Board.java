@@ -244,7 +244,7 @@ public final class Board extends javax.swing.JFrame {
 			JLabel playerLabel = new JLabel();
 			this.factory.setSize(playerLabel, 2 * Field.FIELDWIDTH, 1 * Field.FIELDWIDTH);
 			this.base.setLayer(playerLabel, 1);
-			this.base.add(playerLabel, this.factory.createGridBagConstraints(x + 1, y, 3, 1));
+			this.base.add(playerLabel, this.factory.createGridBagConstraints(x + 2, y, 1, 1));
 			this.playerLabels[i] = playerLabel;
 		}
 	}
