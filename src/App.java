@@ -12,6 +12,12 @@ import desktop_fields.*;
 import desktop_resources.*;
 
 public class App {
+    private static MP3 music = new MP3("spilmusik.mp3");
+
+    /**
+     * This method executes the entire game.
+     * @param args we don't use this........
+     */
     public static void main(String[] args) {
         Dice.setFaceCount(6);
         DiceCup.setDiceCount(2);
@@ -28,25 +34,28 @@ public class App {
 
         GUI.displayChanceCard("");
 
+        // Start Music
+        music.play();
+
         while (!GameLogic.getPlayerHasWon()) {
-            Player currentPlayer = Player.findPlayer(GameLogic.whosTurnIsIt());
+            Player currentPlayer = Player.findPlayer(GameLogic.whoseTurnIsIt());
 
-            GUI.getUserButtonPressed("This turn goes to: " + currentPlayer.getPlayerName() + "\nPress 'the button', would you kindly?", "the button");
+            GUI.getUserButtonPressed("\t\t          This turn goes to: " + currentPlayer.getPlayerName()
+                    + "\n\t\t   "
+                    + "Press 'the button', would you kindly?", "the button");
 
-            int rolled[] = GameLogic.playTurn(currentPlayer);
-            //int calTotalScore = 0;
-            //for (int diceFace : rolled) {
-            //    calTotalScore += diceFace;
-            //}
+            int eyes[] = GameLogic.playTurn(currentPlayer);
 
-            GUI.setDice(rolled[0], rolled[1]);
+            GUI.setDice(eyes[0], eyes[1]);
             GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerScore());
-
-            GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(rolled) + " points.");
+            System.out.println("\n" + currentPlayer.getPlayerName() + " rolled a " + eyes[0] + " and a " + eyes[1] + " giving " + GameLogic.calTotalScore(eyes, currentPlayer) + " points."
+                    + "\n" + currentPlayer.getPlayerName() + " now has " + currentPlayer.getPlayerScore() + " points in total.\n\n");
+            GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points.");
 
             if(GameLogic.getPlayerHasWon()) {
-                GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(rolled) + " points." + "<br>"+ "<br>"+ "<br>" + " YOU ARE WINNER!");
-                GUI.showMessage("Press 'ok' to exit");
+                GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points." + "<br>"+ "<br>"+ "<br>" + " YOU ARE WINNER!");
+                GUI.showMessage("\t\t                   " + "Press 'ok' to exit");
+                music.close();
                 GUI.close();
             }
         }

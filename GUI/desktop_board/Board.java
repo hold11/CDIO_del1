@@ -186,7 +186,7 @@ public final class Board extends javax.swing.JFrame {
 	private void makeCenter() {
 		this.base.setLayer(Center.getInstance().getCenterPanel(), 1);
 		this.base.add(Center.getInstance().getCenterPanel(),
-			this.factory.createGridBagConstraints(4, 4, 3, 3));
+			this.factory.createGridBagConstraints(1, 1, 3, 3));
 	}
 	/**
 	 * Makes the base
@@ -233,7 +233,7 @@ public final class Board extends javax.swing.JFrame {
 	private void makePlayerAreas() {
 		int x = 7;
 		for(int i = 0; i < MAX_PLAYER_COUNT; i++) {
-			int y = 9 - i;
+			int y = 2 - i;
 			
 			JLabel iconLabel = new JLabel();
 			this.factory.setSize(iconLabel, 1 * Field.FIELDWIDTH, 1 * Field.FIELDWIDTH);
@@ -333,7 +333,7 @@ public final class Board extends javax.swing.JFrame {
 				//Icon icon = new ImageIcon(p.getImage());
 				
 				//this.iconLabels[position].setIcon(icon);
-				this.playerLabels[position].setText("<html>" + "<font size=4 color=green>" + p.getName() + "<br>"
+				this.playerLabels[position].setText("<html>" + "<font size=4 color=#949494>" + p.getName() + "<br>"
 					+ p.getBalance());
 				position++;
 			} else {
