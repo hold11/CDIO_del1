@@ -108,5 +108,7 @@ public class Player {
     public static void reset() {
         playerCount = 1;
         players.clear();
+        for (Player player : players)
+            player.addPlayerScore(-player.getPlayerScore());
     }
 }

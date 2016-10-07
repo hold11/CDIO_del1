@@ -52,7 +52,7 @@ public final class BoardController {
 	 */
 	public void showMessage(String msg) {
 		final CountDownLatch latch = new CountDownLatch(1);
-		JButton okButton = new JButton("OK");
+		JButton okButton = new JButton("Exit");
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -235,7 +235,7 @@ public final class BoardController {
 			}
 		}
 		final JComboBox dropdown = new JComboBox(options);
-		JButton okButton = new JButton("Exit");
+		JButton okButton = new JButton("OK");
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override
@@ -355,10 +355,7 @@ public final class BoardController {
 		List<Point> dicePlaces = new ArrayList<Point>();
 		for(int x = 1; x < 10; x++) {
 			for(int y = 1; y < 10; y++) {
-				if(x >= 4 && x <= 6 && y >= 4 && y <= 6) {
-					continue;
-				} // Do not add the points in the center.
-				if(x > 6 && y > (9 - this.board.getPlayerCount())) {
+				if(y <= 3) {
 					continue;
 				} // Do not add the points used for the players names and balances.
 				dicePlaces.add(new Point(x, y));
@@ -411,9 +408,9 @@ public final class BoardController {
 	}
 	private boolean arePositionsValid(int x1, int y1, int x2, int y2) {
 	    return x1 >= 0 && x1 <= 10
-            && y1 >= 5 && y1 <= 10
+            && y1 >= 0 && y1 <= 10
             && x2 >= 0 && x2 <= 10
-            && y2 >= 5 && y2 <= 10;
+            && y2 >= 0 && y2 <= 10;
 	}
 	private boolean areRotationsValid(int rotation1, int rotation2) {
 	    return rotation1 >= 0 && rotation1 <= 359

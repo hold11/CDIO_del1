@@ -29,7 +29,6 @@ public final class Center{
 		this.factory.setSize(centerPanel, 3*Field.FIELDWIDTH, 3*Field.FIELDHEIGHT);
 		//centerPanel.addMouseListener(new CenterMouseListener(this));
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-		 
 		for(int i=0; i<label.length; i++){
 			label[i] = new JLabel();
 			label[i].setOpaque(false);

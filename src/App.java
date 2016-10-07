@@ -29,13 +29,14 @@ public class App {
 
         GUI.create(fields);
 
-        GUI.addPlayer(p1.getPlayerName(), 0);
         GUI.addPlayer(p2.getPlayerName(), 0);
+        GUI.addPlayer(p1.getPlayerName(), 0);
 
         GUI.displayChanceCard("");
 
         // Start Music
-        music.play();
+        if (args.length == 0)
+            music.play();
 
         while (!GameLogic.getPlayerHasWon()) {
             Player currentPlayer = Player.findPlayer(GameLogic.whoseTurnIsIt());
@@ -53,10 +54,20 @@ public class App {
             GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points.");
 
             if(GameLogic.getPlayerHasWon()) {
+                System.out.println("\n" + currentPlayer.getPlayerName() + " has won the game.");
                 GUI.displayChanceCard(currentPlayer.getPlayerName() + " rolled " + GameLogic.calTotalScore(eyes, currentPlayer) + " points." + "<br>"+ "<br>"+ "<br>" + " YOU ARE WINNER!");
-                GUI.showMessage("\t\t                   " + "Press 'ok' to exit");
-                music.close();
-                GUI.close();
+                if (GUI.getUserButtonPressed("\t                      " + "Press 'Exit' to exit or 'Play again' to play again", "Exit" , "Play Again") == "Exit")
+                {
+                    music.close();
+                    GUI.close();
+                } else {
+                    GameLogic.setPlayerHasWon(!true); // FW:FW:FW:FW:RE: THOUGHT YOU MIGHT GET A LAUGH OUT OF THIS!
+                    for (Player p : Player.getPlayersList())
+                        GUI.setBalance(p.getPlayerName(), 0);
+                    Player.reset();
+                    String[] _args = {"restart"};
+                    main(_args);
+                }
             }
         }
     }

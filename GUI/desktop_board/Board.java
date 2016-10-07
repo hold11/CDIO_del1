@@ -121,7 +121,7 @@ public final class Board extends javax.swing.JFrame {
 		
 		this.inputPanel.add(this.messageArea);
 		this.base.setLayer(this.inputPanel, 4);
-		this.base.add(this.inputPanel, this.factory.createGridBagConstraints(1, 1, 9, 3));
+		this.base.add(this.inputPanel, this.factory.createGridBagConstraints(2, 1, 9, 3));
 	}
 	/**
 	 * Adds Input components to the board
@@ -231,7 +231,7 @@ public final class Board extends javax.swing.JFrame {
 	 * Makes the components on which to show players
 	 */
 	private void makePlayerAreas() {
-		int x = 7;
+		int x = 8;
 		for(int i = 0; i < MAX_PLAYER_COUNT; i++) {
 			int y = 2 - i;
 			
@@ -244,7 +244,7 @@ public final class Board extends javax.swing.JFrame {
 			JLabel playerLabel = new JLabel();
 			this.factory.setSize(playerLabel, 2 * Field.FIELDWIDTH, 1 * Field.FIELDWIDTH);
 			this.base.setLayer(playerLabel, 1);
-			this.base.add(playerLabel, this.factory.createGridBagConstraints(x + 1, y, 2, 1));
+			this.base.add(playerLabel, this.factory.createGridBagConstraints(x + 2, y, 1, 1));
 			this.playerLabels[i] = playerLabel;
 		}
 	}
